@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css3 exercise</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<h1>CSS3 Exercise</h1>
+
+		<dl>
+			<h3>css伪类</h3>
+			<dt>:checked,:disabled</dt>
+			<dd>
+				<p>选中，禁用</p>
+				<div class="content test-checked">
+					<input type="radio" name="exercise" checked="checked">select
+					<input type="radio" name="exercise" disabled="disabled">choose
+				</div>
+				<div class="content">
+					<input type="checkbox" checked="checked" name="checkbox">c1
+					<input type="checkbox" name="checkbox">c2
+				</div>
+				<pre>input:checked{margin-right: 20px;}</pre>
+				<pre>input:disabled{margin-right: 100px;cursor: all-scroll;}</pre>
+			</dd>
+
+			<dt>:empty</dt>
+			<dd>
+				<p>x:empty 选中没有子元素的x元素</p>
+				<div class="content test-empty">
+					<p>test1</p>
+					<p>test2</p>
+					<p>test3</p>
+					<p></p>
+					<p>test4</p>
+				</div>
+				<pre>.test-empty p:empty{padding: 10px;background: #f30;}</pre>
+			</dd>
+
+			<dt>:enabled</dt>
+			<dd>
+				<p>xx:enabled设置xx启用后的样式</p>
+				<div class="content test-enabled">
+					<form>
+						<input type="text" value="input test">
+						<input type="text" disabled="disabled" value="input test">
+						<input type="text" value="input test">
+					</form>
+				</div>
+				<pre>.test-enabled input:disabled{background: #f8f8f8;}</pre>
+				<pre>.test-enabled input:enabled{background: yellow;}</pre>
+			</dd>
+
+			<dt>:first-of-type,:last-of-type;:last-child</dt>
+			<dd>
+				<p>xx:first-of-type选择每个父元素是xx元素的第一个xx子元素</p>
+				<p>xx:last-of-type选择每个父元素是xx元素的最后一个xx子元素</p>
+				<p>xx:last-child选择所有xx元素的最后一个子元素</p>
+				<div class="content test-first-of-type">
+					<ul>
+						<li>
+							<p>test first of type</p>
+							<b>STRONG label</b>
+							<p>test first of type</p>
+							<p>test first of type</p>
+							<b>STRONG label</b>
+							<p>test first of type</p>
+							<b>STRONG label</b>
+							<p>test first of type</p>
+							<b>STRONG label</b>
+						</li>
+						<li>this is test of last-child</li>
+						<li>this is test of last-child</li>
+						<li>this is test of last-child</li>
+					</ul>
+				</div>
+				<pre>.test-first-of-type p:first-of-type{color: yellow;}</pre>
+				<pre>.test-first-of-type p:last-of-type{color: #f70;}</pre>
+				<pre>.test-first-of-type li:last-child{background: black;}</pre>
+			</dd>
+
+			<dt>:in-range</dt>
+			<dd>
+				<p>:in-range用于指定区间值范围内样式的变化</p>
+				<div class="content test-in-range">
+					<form>
+					  <p>5 ~ 20 背景颜色是黄色，超出范围是系统默认背景色</p>
+						<input type="number" min="5" max="20" name="" value="6">
+					</form>
+				</div>
+				<pre>.test-in-range input[type="number"]:in-range{background: yellow;}</pre>
+			</dd>
+
+			<dt>:invalid,:valid</dt>
+			<dd>
+				<p>选择无效的元素</p>
+				<div class="content test-invalid">
+					<input type="email" name="" value="inputYourEmail">
+				</div>
+				<p>输入正确的email地址的时候红框消失,黑框出现</p>
+				<pre>.test-invalid input:invalid{border: 2px solid red;}</pre>
+			</dd>
+
+			<dt>:not(xx)</dt>
+			<dd>
+				<p>选择所有xx元素以外的元素</p>
+				<div class="content test-not">
+					<p>test of not select</p>
+					<a href="www.baidu.com">this is a link url</a>
+					<p>test of not select</p>
+					<a href="www.baidu.com">this is a link url</a>
+					<p>test of not select</p>
+					<a href="www.baidu.com">this is a link url</a>
+				</div>
+				<pre>.test-not :not(p){background: #f8f8f8;}</pre>
+			</dd>
+
+			<dt>:nth-child(n),:nth-last-cjild(n),:nth-last-of-type(n),:nth-of-type(n)</dt>
+			<dd>
+				<p>:nth-child(n) 	选择所有p元素的第二个子元素</p>
+				<p>:nth-last-child(n) 选择所有p元素倒数的第二个子元素</p>
+				<p>:nth-last-of-type(n) 选择所有p元素倒数的第二个为p的子元素</p>
+				<p>:nth-of-type(n) 	选择所有p元素第二个为p的子元素</p>
+				<div class="content test-child">
+					<ul>
+						<li><a href="xxx">nth-child test</a></li>
+						<li><a href="xxx">nth-child test</a></li>
+						<li><a href="xxx">nth-child test</a></li>
+						<li><a href="xxx">nth-child test</a></li>
+						<li>
+							<ol>
+								<li>test child</li>
+								<li>test child</li>
+								<li>test child</li>
+								<li>test child</li>
+								<li>test child</li>
+							</ol>
+						</li>
+						<li><a href="xxx">nth-child test</a></li>
+						<li><a href="xxx">nth-child test</a></li>
+						<li><a href="xxx">nth-child test</a></li>
+					</ul>
+				</div>
+			</dd>
+
+			<dt>:only-of-type,:only-child</dt>
+			<dd>
+				<p>:only-of-type 	选择所有仅有一个子元素为p的元素</p>
+				<p>:only-child 	选择所有仅有一个子元素的p元素</p>
+				<div class="content test-only">
+					<ul>
+						<li>
+							<p>fdasdfj</p>
+							<p>fdasdfj</p>
+							<p>fdasdfj</p>
+							<p>fdasdfj</p>
+						</li>
+						<li><p>test test test test test</p></li>
+						<li>
+							<p>dhfe</p>
+							<p>dhfe</p>
+						</li>
+						<li><p>test test test test test</p></li>
+					</ul>
+				</div>
+			</dd>
+
+			<dt>:optional</dt>
+			<dd>
+				<p>选择没有required的元素属性，只适用于input,select,textarea</p>
+				<div class="content test-optional">
+					<input type="input" name="">
+					<input type="input" required="required" name="">
+				</div>
+			</dd>
+
+			<dt>:root</dt>
+			<dd>
+				<p>选择文档的根元素</p>
+			</dd>
+
+			<dt>:link,:visited,:active,:hover</dt>
+			<dd>
+				<p>:link选择所有未访问链接</p>
+				<p>:visited选择所有访问过的链接</p>
+				<p>:active选择正在活动链接</p>
+				<p>:hover</p>
+				<div class="content test-a">
+					<ul>
+						<li><a target="_blank" href="www.baidu.com">link</a></li>
+						<li><a target="_blank" href="www.baidu.com">visited</a></li>
+						<li><a target="_blank" href="www.baidu.com">active</a></li>
+						<li><a target="_blank" href="www.baidu.com">hover</a></li>
+					</ul>
+				</div>
+			</dd>
+
+			<dt>:focus</dt>
+			<dd>
+				<p>接受键盘事件或者其他用户输入的元素</p>
+				<div class="content test-focus">
+					<input type="input" name="">
+				</div>
+			</dd>
+
+			<dt>:first-letter,:first-line</dt>
+			<dd>
+				<p>:first-letter选择第一个字母</p>
+				<p>:first-line选择第一行</p>
+				<div class="content test-first">
+					<p>This is using first-letter to mark the first letter</p>
+					<p>this is using first-line to mark the first line,this is using first-line to mark the first line,this is using first-line to mark the first line,this is using first-line to mark the first line</p>
+				</div>
+			</dd>
+
+			<dt>:before,:after</dt>
+			<dd>
+				<p>:before之前插入内容</p>
+				<p>:after之后插入内容</p>
+				<div class="content test-before-after">
+					<p>test before and after</p>
+				</div>
+			</dd>
+
+			<dt>:lang(xx)</dt>
+			<dd>
+				<p>向带有指定lang属性开始的元素添加样式</p>
+				<div class="content test-lang">
+					<p lang="xx">test lang</p>
+					<p>test lang</p>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>background多重背景</dt>
+			<dd>
+				<div class="test-background">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>gradients渐变</dt>
+			<dd>
+				<div class="test-gradient">
+					gradient background
+				</div>
+				<div class="test-gradient1">
+					<p>gradient background</p>
+					<p>gradient background</p>
+					<p>gradient background</p>
+					<p>gradient background</p>
+					<p>gradient background</p>
+				</div>
+				<div class="test-gradient-repeat">
+					Sunshine
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>2D转换</dt>
+			<dd>
+				<div class="test-translate">
+					<p>translate(form-left,form-top)表示移动位置</p>
+					<div class="translate">变化移动后的位置</div>
+					<p>rotate(角度)</p>
+					<div class="rotate">旋转后</div>
+					<p>scale(x增加或减少的大小倍数,y增加或减少的大小倍数)，例如之前是100*80的大小</p>
+					<div class="scale-add">增加</div>
+					<div class="scale-lose">减少</div>
+					<p>skew(度数,度数)扭曲</p>
+					<div class="skew">扭曲后</div>
+					<mark>transform转换属性</mark>
+					<mark>transform-origin允许您更改转化元素的位置</mark>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>3D转换</dt>
+			<dd>
+				<div class="test-translate3d">
+					<p>rotateX(度数)</p>
+					<p>perspective规定3D元素的透视效果</p>
+					<div class="rotateX">
+						<div class="rotate-per rotate-perX">rotateX</div>
+					</div>
+					<p>rotateY(度数)</p>
+					<div class="rotateY">
+						<div class="rotate-per rotate-perY">rotateY</div>
+					</div>
+					<p>translate3d(x,y,z)</p>
+					<div class="translate3d">translate3d</div>
+					<p>translateX(x)</p>
+					<div class="translateX">translateX</div>
+					<p>translateY(y)</p>
+					<div class="translateY">translateY</div>
+					<p>translateZ(Z)</p>
+					<div class="translateZ">translateZ</div>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>css3过渡</dt>
+			<dd>
+				<div class="test-transiton">
+					<p>主要使用的是transition，它有四个属性值：过渡css属性名称 过渡花费时间 过渡使用的曲线 过渡延迟时间</p>
+					<div class="transiton"></div>
+					<div class="scale3d"></div>
+					<pre>transition: width 2s ease-out 1s;</pre>
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>css3动画</dt>
+			<dd>
+				<p>animation and @keyframes</p>
+				<div class="test-animation"></div>
+				<div class="test-animation2">css3 animation</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>css3多列</dt>
+			<dd>
+				<div class="test-column">
+				<h2>英国维斯米斯特教堂碑文英国维斯米斯特教堂碑文</h2>
+				“当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”“当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>box-sizing属性</dt>
+			<dd class="clearfix">
+				<p>box-sizing: content-box | border-box | inherit</p>
+				<p>content-box:表示设置的宽度只包含内容的宽度，不包含边框</p>
+				<p>border-box:表示设置的宽度包含border、padding、content</p>
+				<strong>这里设置的width=200px;</strong><br>
+				<div class="test-box test-box1">test box-sizing is content-box,content-box:表示设置的宽度只包含内容的宽度，不包含边框</div>
+				<div class="test-box test-box2">test box-sizing is border-box,border-box:表示设置的宽度包含border、padding、content</div>
+			</dd>
+
+			<dt>resize</dt>
+			<dd>
+				<p>resize用于调整尺寸(ie不兼容)</p>
+				<p>resize: none | both | horizontal| vertical</p>
+				<div class="test-resize">test resize</div>
+			</dd>
+
+			<dt>outline-offset</dt>
+			<dd>
+				<p>用于外形修饰</p>
+				<div class="test-outline">外面修饰增加一个边框，ie不兼容,同时它不占用空间</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>img卡片式</dt>
+			<dd class="test-img">
+				<p>卡片式图片</p>
+				<div class="test-img-shadow">
+					<img src="img/yeoman.png">
+					<p>This is logo of yeoman</p>
+				</div>
+			</dd>
+
+			<dt>img滤镜</dt>
+			<dd>
+				<p>使用filter: none | blur(px) | brightness(%) | contrast(%) | drop-shaodw() | grayscale(%) | hue-rotate(deg) | invert(%) | opacity(%) | saturate(%) | sepia(%) | url();</p>
+				<p>具体滤镜属性代表意义查看 <a href="http://www.runoob.com/cssref/css3-pr-filter.html" target="_blank">http://www.runoob.com/cssref/css3-pr-filter.html</a></p>
+				<div class="test-blur">
+					<img src="img/git.png">
+				</div>
+			</dd>
+		</dl>
+
+		<dl>
+			<dt>button特效</dt>
+			<dd>
+				<p>button 波纹效果</p>
+				<button class="test-button">click</button>
+				<p>button按下效果</p>
+				<button class="button">click</button>
+			</dd>
+		</dl>
+	</div>
+</body>
+</html>
